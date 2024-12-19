@@ -4,6 +4,7 @@ const port = 3002;
 
 import { getCocktails,
   getCocktailById,
+  addCocktail,
  } from "./cocktail.js";
 
 app.use(express.json());
@@ -24,7 +25,15 @@ app.get("/cocktails/:id", async (req, res) => {
   res.json(cocktail);
 })
 
-
+//MVP 3 - create a post listener that create a new cocktail
+// create a variable that gets the new cocktails for the request body
+// use the add cocktail function
+// send response
+//app.post("/cocktails", async (req, res) => {
+//  const newCocktail = req.body;
+//  const cocktail = await addCocktail(newCocktail);
+//  res.json(cocktail);
+//})
 
 app.listen(port, function () {
   console.log(`Server is now listening on http://localhost:${port}`);

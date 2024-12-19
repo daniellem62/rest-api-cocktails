@@ -23,3 +23,23 @@ export async function getCocktailById (id){
   const found = cocktails.find ((cocktails) => cocktails.id === id);
   return found;
 }
+
+// MVP 3
+// create a function to create a new cocktail recipe
+// read all the cocktails
+// push the new recipe 
+// return the new recipe
+//export async function addCocktail(name, alcoholic, category, glassType) {
+//    const newCocktail = {
+//        name,
+//        alcoholic,
+//        category,
+//        glassType,
+//    }
+
+//    const cocktails = await readCocktails();
+//    cocktails.push(newCocktail);
+//    await writeCocktails(cocktails);
+//    return newCocktail;
+//}
+
