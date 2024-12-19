@@ -1,11 +1,15 @@
 import express from "express";
-const app = express()
-const port = 3002
+const app = express();
+const port = 3002;
+
+import { getCocktails } from "./cocktail.js";
 
 app.use(express.json());
 
-app.get("/", function (req, res) {
-  res.send("Welcome to the Cocktails Recipes API");
+// create GET listener that responds with all cocktail data
+app.get("/cocktails", async function (req, res) {
+  const cocktails = await getCocktails();
+  res.json(cocktails);
 });
 
 app.listen(port, function () {
