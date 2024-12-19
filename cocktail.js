@@ -71,34 +71,14 @@ export async function editCocktail(id, newName, newAlcoholic, newCategory, newGl
 // delete cocktail
 // write back to file
 // return deleted
-//export async function deleteCocktail(id) {
-//  let cocktails = await readCocktails();
-//  const cocktailToDelete = cocktails.find((cocktail) => cocktail.id === id);
-//  const indexToDelete = cocktails.findIndex((cocktail) => cocktail.id === id);
-//  if (cocktailToDelete) {
-//    const deletedCocktail = cocktails.splice(indexToDelete, 1)[0];
-//    await writeCocktails(cocktails);
-//    return deletedCocktail;
-//} 
-//}
 export async function deleteCocktail(id) {
-  // Read the list of cocktails
   let cocktails = await readCocktails();
-  
-  // Find the index of the cocktail to delete
   const indexToDelete = cocktails.findIndex((cocktail) => cocktail.id === id);
-
   if (indexToDelete !== -1) {
-    // Remove the cocktail from the array using splice
     const deletedCocktail = cocktails.splice(indexToDelete, 1)[0];
-
-    // Save the updated cocktails list back to storage
     await writeCocktails(cocktails);
-
-    // Return the deleted cocktail
     return deletedCocktail;
   } else {
-    // If the cocktail was not found, return null or handle error
-    return null;  // or throw new Error('Cocktail not found');
+    return null;  
   }
 }
