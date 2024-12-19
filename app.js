@@ -29,11 +29,11 @@ app.get("/cocktails/:id", async (req, res) => {
 // create a variable that gets the new cocktails for the request body
 // use the add cocktail function
 // send response
-//app.post("/cocktails", async (req, res) => {
-//  const newCocktail = req.body;
-//  const cocktail = await addCocktail(newCocktail);
-//  res.json(cocktail);
-//})
+app.post("/cocktails", async (req, res) => {
+  const { id, name, alcoholic, category, glassType } = req.body;
+  const cocktail = await addCocktail(id, name, alcoholic, category, glassType);
+  res.json(cocktail);
+})
 
 app.listen(port, function () {
   console.log(`Server is now listening on http://localhost:${port}`);

@@ -29,17 +29,18 @@ export async function getCocktailById (id){
 // read all the cocktails
 // push the new recipe 
 // return the new recipe
-//export async function addCocktail(name, alcoholic, category, glassType) {
-//    const newCocktail = {
-//        name,
-//        alcoholic,
-//        category,
-//        glassType,
-//    }
+export async function addCocktail(id, name, alcoholic, category, glassType) {
+    const newCocktail = {
+        id,
+        name,
+        alcoholic,
+        category,
+        glassType,
+    }
 
-//    const cocktails = await readCocktails();
-//    cocktails.push(newCocktail);
-//    await writeCocktails(cocktails);
-//    return newCocktail;
-//}
+    const cocktails = await readCocktails();
+    cocktails.push(newCocktail);
+    await writeCocktails(cocktails);
+    return newCocktail;
+}
 
