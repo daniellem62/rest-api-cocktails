@@ -10,3 +10,16 @@ export async function getCocktails() {
 }
 
 // create GET listener that responds with all cocktail data (app.js)
+
+//MVP 2
+// create a function that takes in an ID parameter 
+//read all cocktails
+// find id 
+//searches cocktail with matching id
+//returns found cocktail
+
+export async function getCocktailById (id){
+  const cocktails = await readCocktails();
+  const found = cocktails.find ((cocktails) => cocktails.id === id);
+  return found;
+}
