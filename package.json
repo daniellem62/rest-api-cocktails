@@ -1,0 +1,23 @@
+{
+  "name": "week-4-rest-api-hackathon-the-dynamic-coders",
+  "version": "1.0.0",
+  "description": "Cocktails API",
+  "homepage": "https://github.com/SchoolOfCode/week-4-rest-api-hackathon-the-dynamic-coders#readme",
+  "bugs": {
+    "url": "https://github.com/SchoolOfCode/week-4-rest-api-hackathon-the-dynamic-coders/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SchoolOfCode/week-4-rest-api-hackathon-the-dynamic-coders.git"
+  },
+  "license": "ISC",
+  "author": "Danielle Mcloughlin, Tim Li and Carmen Zakaria",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
