@@ -29,13 +29,16 @@ export async function getCocktailById (id){
 // read all the cocktails
 // push the new recipe 
 // return the new recipe
-export async function addCocktail(id, name, alcoholic, category, glassType) {
+export async function addCocktail(id, name, alcoholic, category, glassType, instructions, ingredients, ingredientMeasures) {
     const newCocktail = {
         id,
         name,
         alcoholic,
         category,
         glassType,
+        instructions,
+        ingredients, 
+        ingredientMeasures
     }
 
     const cocktails = await readCocktails();
@@ -49,7 +52,7 @@ export async function addCocktail(id, name, alcoholic, category, glassType) {
 // read all the cocktails
 // grab cocktail by id
 // write updated cocktails back to file
-export async function editCocktail(id, newName, newAlcoholic, newCategory, newGlassType, ) {
+export async function editCocktail(id, newName, newAlcoholic, newCategory, newGlassType, newInstructions, newIngredients, newIngredientMeasures) {
   const cocktails = await readCocktails();
 
   const cocktailToEdit = cocktails.find((cocktail) => cocktail.id === id);
@@ -59,6 +62,9 @@ export async function editCocktail(id, newName, newAlcoholic, newCategory, newGl
     cocktailToEdit.alcoholic = newAlcoholic ?? cocktailToEdit.alcoholic;
     cocktailToEdit.category = newCategory ?? cocktailToEdit.category;
     cocktailToEdit.glassType = newGlassType ?? cocktailToEdit.glassType;
+    cocktailToEdit.instructions = newInstructions ?? cocktailToEdit.instructions;
+    cocktailToEdit.ingredients = newIngredients ?? cocktailToEdit.ingredients;
+    cocktailToEdit.ingredientMeasures = newIngredientMeasures ?? cocktailToEdit.ingredientMeasures;
   }
 
   await writeCocktails(cocktails);

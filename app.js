@@ -43,8 +43,8 @@ app.post("/cocktails", async (req, res) => {
 // send new cocktail
 app.patch("/cocktails/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, alcoholic, category, glassType } = req.body;
-  const newCocktail = await editCocktail(id, name, alcoholic, category, glassType);
+  const { name, alcoholic, category, glassType, instructions, ingredients, ingredientMeasures } = req.body;
+  const newCocktail = await editCocktail(id, name, alcoholic, category, glassType, instructions, ingredients, ingredientMeasures);
   res.json(newCocktail);
 })
 
