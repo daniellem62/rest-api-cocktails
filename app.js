@@ -13,8 +13,26 @@ app.use(express.json());
 
 // create GET listener that responds with all cocktail data
 app.get("/cocktails", async function (req, res) {
-  const cocktails = await getCocktails();
-  res.json(cocktails);
+  try {
+    const cocktails = await getCocktails();
+    if (cocktails) {
+      res.json({
+        success: true,
+        payload: cocktails,
+      });
+    } else {
+      res.status(404).json({
+        success:false,
+        payload: "Cocktails not found"
+      });
+    }
+  } catch (error) {
+    console.error("Error!", error);
+    res.status(500).json({
+      success: false,
+      payload: "An error occurred",
+    });
+  }
 });
 
 //MVP 2 - create a GET listener that returns cocktail by id
@@ -23,8 +41,26 @@ app.get("/cocktails", async function (req, res) {
 
 app.get("/cocktails/:id", async (req, res) => {
   const { id } = req.params;
-  const cocktail = await getCocktailById(id);
-  res.json(cocktail);
+  try {
+    const cocktail = await getCocktailById(id);
+    if (cocktail) {
+      res.json({
+        success: true,
+        payload: cocktail,
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        payload: "Cocktail not found",
+      });
+    }
+  } catch (error) {
+    console.error("Error!", error);
+    res.status(500).json({
+      success:false,
+      payload: "An error occurred while finding the cocktail"
+    });
+  }
 })
 
 //MVP 3 - create a post listener that create a new cocktail
@@ -32,9 +68,27 @@ app.get("/cocktails/:id", async (req, res) => {
 // use the add cocktail function
 // send response
 app.post("/cocktails", async (req, res) => {
-  const { id, name, alcoholic, category, glassType } = req.body;
-  const cocktail = await addCocktail(id, name, alcoholic, category, glassType);
-  res.json(cocktail);
+  try {
+    const cocktail = await addCocktail(id, name, alcoholic, category, glassType, instructions, ingredients, ingredientMeasures);
+    const { id, name, alcoholic, category, glassType, instructions, ingredients, ingredientMeasures} = req.body;
+    if (cocktail) {
+      res.status(201).json({
+        success: true,
+        payload: cocktail,
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        payload: "Failed to add cocktail"
+      });
+    }
+  } catch (error) {
+    console.error("Error!, error");
+    res.status(500).json({
+      success: false,
+      payload: "An error occurred while creating a cocktail"
+    })
+  }
 })
 
 //MVP 4 - create a patch listener that edits a cocktail
@@ -55,7 +109,7 @@ app.patch("/cocktails/:id", async (req, res) => {
 app.delete("/cocktails/:id", async (req, res) => {
   const { id } = req.params;
   const deletedCocktail = await deleteCocktail(id);
-  res.send(deletedCocktail)
+  res.json(deletedCocktail)
 })
 
 app.listen(port, function () {
