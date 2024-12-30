@@ -39,7 +39,7 @@ export async function addCocktail(id, name, alcoholic, category, glassType, inst
         instructions,
         ingredients, 
         ingredientMeasures
-    }
+    };
 
     const cocktails = await readCocktails();
     cocktails.push(newCocktail);
@@ -87,4 +87,31 @@ export async function deleteCocktail(id) {
   } else {
     return null;  
   }
+}
+
+export async function getCocktailByKey(key, value) {
+  if (!key || !value) {
+    throw new Error('Both key and value must be provided');
+  }
+
+  // Read the cocktail data
+  let cocktails = await readCocktails();
+  
+  // Ensure key is valid (exists in at least one cocktail)
+  if (!cocktails.some(cocktail => key in cocktail)) {
+    throw new Error(`Invalid key: ${key}`);
+  }
+
+  const foundCocktail = cocktails.filter((cocktail) => {
+    // If the key corresponds to an array (like 'ingredients'), we need to check the array contents
+    if (Array.isArray(cocktail[key])) {
+      // If the key is an array, check if the array contains the value
+      return cocktail[key].some(item => item.toLowerCase().includes(value.toLowerCase()));
+    }
+
+    // For other non-array keys, do a direct comparison
+    return cocktail[key].toLowerCase() === value.toLowerCase();
+  });
+
+  return foundCocktail;
 }
