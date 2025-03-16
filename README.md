@@ -120,7 +120,7 @@ DELETE /cocktails/:id
 
 ## 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-username/cocktail-recipes-api.git
+git clone https://github.com/daniellem62/rest-api-cocktails.git
 cd cocktail-recipes-api
 ```
 ## 2️⃣ Install Dependencies
