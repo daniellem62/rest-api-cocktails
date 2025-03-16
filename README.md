@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-The Cocktail Recipes API is a RESTful API that allows users to explore, create, update, and delete cocktail recipes. It uses a JSON-based database to store recipes, making it easy to manage and retrieve cocktail information.
+The Cocktail Recipes API is a RESTful API that allows users to explore, create, update, and delete cocktail recipes. 
 
 ## 🚀 Features
 
@@ -22,9 +22,9 @@ The Cocktail Recipes API is a RESTful API that allows users to explore, create, 
 
 **Tools:** Postman
 
-📂 API Endpoints
+## 📂 API Endpoints
 
-🔍 Get All Cocktails
+## 🔍 Get All Cocktails
 
 ```bash
 GET /api/cocktails
@@ -113,6 +113,8 @@ The API will be available at http://localhost:3000.
 
 
 ## 📌 Future Improvements
+
+📂 Add recipes to a database for better storage and scalability
 
 🍸 Create a front-end to display the cocktails
 
