@@ -22,12 +22,12 @@ The Cocktail Recipes API is a RESTful API that allows users to explore, create, 
 
 **Tools:** Postman
 
-## 📂 API Endpoints
+## 📂 Endpoints
 
 ## 🔍 Get All Cocktails
 
 ```bash
-GET /api/cocktails
+GET /cocktails
 ```
 
 **Response:**
@@ -46,7 +46,7 @@ GET /api/cocktails
 
 ## 🔍 Get a Specific Cocktail
 ```bash
-GET /api/cocktails/:id
+GET /cocktails/:id
 ```
 
 **Response:**
@@ -58,9 +58,32 @@ GET /api/cocktails/:id
   "instructions": "Muddle mint leaves with sugar and lime juice, add rum, and top with soda water."
 }
 ```
+
+## 🔍 Filter Cocktails
+```bash
+GET /api/cocktails/filter?key={attribute}&value={value}
+```
+**Example Request:**
+```bash
+GET /api/cocktails/filter?key=ingredients&value=Vodka
+```
+**Response:**
+```bash
+[
+  {
+    "id": 2,
+    "name": "Espresso Martini",
+    "category": "Cocktail",
+    "ingredients": ["Vodka", "Coffee Liqueur", "Espresso", "Sugar Syrup"],
+    "instructions": "Shake all ingredients with ice and strain into a martini glass."
+  }
+]
+```
+
+
 ## ➕ Add a New Cocktail
 ```bash
-POST /api/cocktails
+POST /cocktails
 ```
 **Request Body:**
 ```bash
@@ -73,7 +96,7 @@ POST /api/cocktails
 
 ## ✏️ Update a Cocktail
 ```bash
-PUT /api/cocktails/:id
+PUT /cocktails/:id
 ```
 **Request Body:**
 ```bash
@@ -85,7 +108,7 @@ PUT /api/cocktails/:id
 ```
 ## ❌ Delete a Cocktail
 ```bash
-DELETE /api/cocktails/:id
+DELETE /cocktails/:id
 ```
 **Response:**
 ```bash
@@ -114,9 +137,9 @@ The API will be available at http://localhost:3000.
 
 ## 📌 Future Improvements
 
-📂 Add recipes to a database for better storage and scalability
-
 🍸 Create a front-end to display the cocktails
+
+📂 Add recipes to a database for better storage and scalability
 
 ✅ Authentication & authorization
 
