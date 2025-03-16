@@ -18,15 +18,16 @@ The Cocktail Recipes API is a RESTful API that allows users to explore, create, 
 
 ## 🛠️ Tech Stack
 
-Backend: Node.js, Express.js
+**Backend:** Node.js, Express.js
 
-Tools: Postman
+**Tools:** Postman
 
 📂 API Endpoints
 
 🔍 Get All Cocktails
 
-```bash GET /api/cocktails
+```bash
+GET /api/cocktails
 ```
 
 **Response:**
@@ -94,16 +95,16 @@ DELETE /api/cocktails/:id
 ```
 ## 🔧 Installation & Usage
 
-# 1️⃣ Clone the Repository
+## 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/your-username/cocktail-recipes-api.git
 cd cocktail-recipes-api
 ```
-# 2️⃣ Install Dependencies
+## 2️⃣ Install Dependencies
 ```bash
 npm install
 ```
-# 3️⃣ Run the Server
+## 3️⃣ Run the Server
 ```bash
 npm start
 ```
@@ -112,6 +113,8 @@ The API will be available at http://localhost:3000.
 
 
 ## 📌 Future Improvements
+
+🍸 Create a front-end to display the cocktails
 
 ✅ Authentication & authorization
 
